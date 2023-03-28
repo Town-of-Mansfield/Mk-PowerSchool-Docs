@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    $j('.box-round').append('<h2 id="powerschool_customizations">PowerSchool Customizations</h2>'+
+								'<table class="linkDescList">'+
+                                    '<colgroup>'+
+                                        '<col>'+
+                                        '<col>'+
+                                    '</colgroup>'+
+                                    '<tbody>'+
+                                    '<tr>'+
+										'<td><a href="/admin/MkDocs/index.html">Documentation</a></td>'+
+										'<td>Documentation for the various District Plugins installed in PowerSchool.</td>'+
+									'</tr>'+
+                                    '</tbody>'+
+								'</table>'
+							);
+</script>

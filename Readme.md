@@ -75,6 +75,10 @@ If you've built a PowerSchool plugin below you are probably familiar with the `p
 
 The `name` and `version` fields are used when compiling the plugin into a zip file. In the example above the output would be called `Mk-PowerSchool-Docs v23.3.28.zip`. 
 
+### _src\web_root\admin\district\home.plugin.content.footer.txt
+
+This page fragment adds a new section under the district settings page that links back to the mkdocs generated pages.
+
 ## Features
 
 Currently, the theme supports the following features:
