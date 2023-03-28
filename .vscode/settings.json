@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.txt": "html"
+    },
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "Readme.md"
+        }
+    ]
+}

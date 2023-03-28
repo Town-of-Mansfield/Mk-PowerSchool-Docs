@@ -1,0 +1,12 @@
+<a href="/admin/home.html" target="_top">~[text:psx.html.admin_reports.runreports.start_page]</a> &gt;
+<a href="{{ nav.homepage.url|url }}" alt="{% trans %}Docs{% endtrans %}">{{ config.site_name }}</a> &gt;
+      {% if page %}
+        {% for doc in page.ancestors[::-1] %}
+          {% if doc.link %}
+            <a href="{{ doc.link|url }}">{{ doc.title }}</a> &gt;
+          {%- else %}
+            {{ doc.title }} &gt;
+          {% endif %}
+        {% endfor %}
+        {{ page.title }}
+      {% endif %}

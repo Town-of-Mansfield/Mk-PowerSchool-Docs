@@ -1,0 +1,17 @@
+<!--
+
+-->
+{% if not nav_item.children %}
+  <li><a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
+{% else %}
+  </ul>
+  {% if not nav_item.parent %}
+    <h2>{{ nav_item.title }}</h2>
+  {% else %}
+    <h4 style="margin: 0 10px 0;">▸ {{ nav_item.title }}</h4>
+  {% endif %}
+  <ul>
+  {% for nav_item in nav_item.children %}
+    {% include "nav.html" %}
+  {% endfor %}
+{% endif %}

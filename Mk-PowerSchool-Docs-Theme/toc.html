@@ -1,0 +1,14 @@
+{% if not toc_item.children %}
+  <li>
+    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+  </li>
+  {% else %}
+  <li>
+    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+    <ul>
+        {% for toc_item in toc_item.children %}
+            {% include "toc.html" %}
+        {% endfor %}
+    </ul>
+  </li>
+{% endif %}

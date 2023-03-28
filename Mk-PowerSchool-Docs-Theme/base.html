@@ -1,0 +1,126 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+<head>
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+
+  <!--
+    You can include external assets of course, but be aware that it means the
+    documentation may not work well offline.
+   
+  -->
+  
+  <link rel="stylesheet" href="{{'css/pure-min.css'|url}}">
+  <link rel="stylesheet" href="{{'css/theme.css'|url}}">
+  <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+  <link href="/images/css/print.css" rel="stylesheet" media="print">
+  ~[wc:commonscripts]
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet">
+  {% endfor %}
+
+  <!--
+    To include static assets from our theme, just add
+    {{ base_url }} beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+
+  {% block extrahead %}
+  {% endblock %}
+
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  {% for path in config.extra_javascript %}
+    <script src="{{ path|url }}"></script>
+  {% endfor %}
+
+
+</head>
+
+<body>
+  ~[wc:admin_header_css]
+    {% include "breadcrumbs.html" %}
+  ~[wc:admin_navigation_css]
+  
+  <h1>{% if page.parent %}{{ page.parent.title }} - {% endif %}{{page.title}}</h1>
+  <div class="box-round">
+    <h2>Table of Contents</h2>
+    <ul>
+      {% for toc_item in page.toc %}
+        {% include "toc.html" %}
+      {% endfor %}
+    </ul>
+    <hr>
+  {% block content %}
+    {{ page.content }}
+  {% endblock %}
+  <hr>
+  <p>Built with <a href="https://www.mkdocs.org">MkDocs {{mkdocs_version}}</a>.</p>
+</div>
+
+  <!--
+  MkDocs version      : {{ mkdocs_version }}
+  Docs Build Date UTC : {{ build_date_utc }}
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      console.log('Hijacking Menu...')
+      $j('#nav-main-menu').empty()
+      $j('#nav-main-menu').attr("id","codex-main-menu")
+      $j('#codex-doc-nav').children().appendTo('#codex-main-menu')
+      $j('#codex-doc-nav').remove()
+    })
+  </script>
+    <div id="codex-doc-nav" style="visibility: hidden;">
+      {% if false %}
+      <form action="{{ "search.html"|url }}" method="get">
+        <input type="search" name="q" placeholder="Search docs" />
+      </form>
+      <hr>
+      {% endif %}
+    <div id="nav-main-frame-secondary">
+      <p><strong>{{config.site_name}}</strong></p>
+      <p class="navPrevNext">
+        {% if page.next_page or page.previous_page %}
+            {% if page.previous_page %}
+              <a href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}" class="button prev"><em>&nbsp;</em></a>
+            {% else %}
+            {% endif %}
+            <a href="{{ nav.homepage.url|url }}" class="studentSearchList">Home</a>
+            {% if page.next_page %}
+              <a href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}" class="button next"><em>&nbsp;</em></a>
+            {% else %}
+            {% endif %}
+        {% endif %}
+      </p>
+    </div>
+      <h2>Navigation</h2>
+      <ul>
+        {% for nav_item in nav %}
+          {% include "nav.html" %}
+        {% endfor %}
+      </ul>
+    </div>
+</body>
+</html>

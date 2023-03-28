@@ -1,0 +1,25 @@
+# site_name is the name of your website, it will show in the Title of pages. 
+site_name: PowerSchool Customization Documentation
+
+# this is the directory that we are going to store our markdown files to be converted into pages. 
+docs_dir: _docs
+
+# this is the directory that mkdocs build will output too when you run that command. Here it is 
+# being exported to the web_root/admin/MkDocs directory which will be applied to your server
+# when you upload the plugin. When you perform an mkdocs build, the build.ps1 script will compile
+# a new plgin zip file for you. 
+site_dir: _src/web_root/admin/MkDocs
+
+# Site URL should be the root address of your powerschool instance. Whatever your domain address
+# might be. Everything after the root domain (yourserver.powerschool.com in this example) should
+# be the same as everything after the web_root directory in the site_dir setting above. 
+site_url: https://yourserver.powerschool.com/admin/MkDocs
+
+# Powerschool doesnt do directory urls with index.html, so we turn this off so all the links point
+# to the html page instead of a directory. 
+use_directory_urls: false
+
+# This sets the theme. 
+theme:
+    name: null
+    custom_dir: 'Mk-PowerSchool-Docs-Theme/'

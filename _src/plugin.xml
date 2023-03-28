@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://plugin.powerschool.pearson.com"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd"
+		name="Mk-PowerSchool-Docs"
+		description="A MkDocs template that is compatible with PowerSchool."
+		version="23.3.28">
+	<publisher name="Your School Name Here">
+		<contact email="yourcontactemail@domain.com"/>
+	</publisher>
+</plugin>
